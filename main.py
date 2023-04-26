@@ -1,21 +1,22 @@
 import random 
 
 class Pokemon:
-    def __init__(self, nom, pa, niveau=1, defense=0, pv=100):
+    def __init__(self, nom, element, pa, niveau=1, defense=0, pv=100):
+        self.element = element
         self.nom = nom
         self.pv = pv
         self.niveau = niveau
         self.pa = pa
         self.defense = defense
-        self.nom_pokemon = ["Bulbizarre", "Carapuce", "Salamèche"]
+        self.nom_pokemon = ["Bulbizarre", "Carapuce", "Salameche"]
 
     def Choose_Pokemon(self):
         self.nom = random.choice(self.nom_pokemon)
         return self.nom
 
 class Bulbizarre(Pokemon):
-    def __init__(self, nom, pa, niveau=1, defense=0, pv=100):
-        super().__init__(nom, pa, niveau, defense, pv)
+    def __init__(self, pa, niveau=1, defense=0, pv=100, nom="Bulbizarre", element="Plante"):
+        super().__init__(nom,  element, pa, niveau, defense, pv)
         self.pa = 49
         self.defense = 49
 
@@ -27,8 +28,8 @@ class Bulbizarre(Pokemon):
         print("Ses Points de vie sont de :", self.pv)
 
 class Carapuce(Pokemon):
-    def __init__(self, nom, pa, niveau=1, defense=0, pv=100):
-        super().__init__(nom, pa, niveau, defense, pv)
+    def __init__(self, pa, niveau=1, defense=0, pv=100, nom="Carapuce", element="Eau"):
+        super().__init__(nom, element,  pa, niveau, defense, pv)
         self.pa = 48
         self.defense = 65
 
@@ -40,8 +41,8 @@ class Carapuce(Pokemon):
         print("Ses Points de vie sont de :", self.pv)
 
 class Salameche(Pokemon):
-    def __init__(self, nom, pa, niveau=1, defense=0, pv=100):
-        super().__init__(nom, pa, niveau, defense, pv)
+    def __init__(self,  pa,nom="Salameche", niveau=1, defense=0, pv=100, element="Feu"):
+        super().__init__(nom, element,  pa, niveau, defense, pv)
         self.pa = 52
         self.defense = 43
 
@@ -58,11 +59,12 @@ c = Carapuce("", 10)
 s = Salameche("", 10)
 p.Choose_Pokemon()
 print("Vous avez obtenu :", p.nom)
-if p.Choose_Pokemon() == "Bulbizarre":
+if p.nom == "Bulbizarre":
     b.Affiche_Bulbizarre()
-elif p.Choose_Pokemon() == "Carapuce":
-    c.Affiche_Carapuce()
-elif p.Choose_Pokemon() == "Salameche":
+elif p.nom == "Salameche":
     s.Affiche_Salameche()
+elif p.nom == "Carapuce":
+    c.Affiche_Carapuce()
 else:
-    print("Non, méchant")
+    print("Erreur")
+
