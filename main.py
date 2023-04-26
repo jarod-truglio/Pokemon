@@ -65,4 +65,4 @@ elif p.Choose_Pokemon() == "Carapuce":
 elif p.Choose_Pokemon() == "Salameche":
     s.Affiche_Salameche()
 else:
-    print("Non")
+    print("Non, méchant")
