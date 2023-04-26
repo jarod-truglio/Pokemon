@@ -83,13 +83,31 @@ p=Pokemon("",10)
 b = Bulbizarre("", 10)
 c = Carapuce("", 10)
 s = Salameche("", 10)
-p.Choose_Pokemon()
-print("Vous avez obtenu :", p.nom)
-if p.nom == "Bulbizarre":
-    b.Affiche_Bulbizarre()
-elif p.nom == "Salameche":
-    s.Affiche_Salameche()
-elif p.nom == "Carapuce":
-    c.Affiche_Carapuce()
-else:
-    print("Erreur")
+
+def Joueur1():
+    p.Choose_Pokemon()
+    print("Vous avez obtenu :", p.nom)
+    if p.nom == "Bulbizarre":
+        b.Affiche_Bulbizarre()
+    elif p.nom == "Salameche":
+        s.Affiche_Salameche()
+    elif p.nom == "Carapuce":
+        c.Affiche_Carapuce()
+    else:
+        print("Erreur")
+
+def Joueur2():
+    p.Choose_Pokemon()
+    print("Votre adversaire à obtenu :", p.nom)
+    if p.nom == "Bulbizarre":
+        b.Affiche_Bulbizarre()
+    elif p.nom == "Salameche":
+        s.Affiche_Salameche()
+    elif p.nom == "Carapuce":
+        c.Affiche_Carapuce()
+    else:
+        print("Erreur")
+
+Joueur1()
+print("--------------")
+Joueur2()
