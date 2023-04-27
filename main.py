@@ -1,8 +1,9 @@
 import random 
 
 class Pokemon:
-    def __init__(self, nom, pa, niveau=1, defense=0, pv=100):
+    def __init__(self, nom, element, pa, niveau=1, defense=0, pv=100):
         self.nom = nom
+        self.element = element
         self.pv = pv
         self.niveau = niveau
         self.pa = pa
@@ -12,14 +13,10 @@ class Pokemon:
     def Choose_Pokemon(self):
         self.nom = random.choice(self.nom_pokemon)
         return self.nom
-    
-    def Attaque_Rapide(self):
-        self.pv -= self.pa
 
     def Show_Information(self):
         print(self.nom)
         print(self.pv)
-
 
 class Bulbizarre(Pokemon):
     def __init__(self, pa, niveau=1, defense=0, pv=100, nom="Bulbizarre", element="Plante"):
@@ -35,14 +32,6 @@ class Bulbizarre(Pokemon):
         print("Ses Points de vie sont de :", self.pv)
         print("Son élément est :", self.element)
 
-    def Attaque_Rapide(self):
-        if self.element == "Feu":
-            self.pv -= 24
-        if self.element == "Eau":
-            self.pv -= 98
-        if self.element == "Plante":
-            self.pv -= 49
-
 class Carapuce(Pokemon):
     def __init__(self, pa, niveau=1, defense=0, pv=100, nom="Carapuce",element="Eau"):
         super().__init__(nom, pa, niveau, defense, pv)
@@ -56,14 +45,6 @@ class Carapuce(Pokemon):
         print("Son niveau est de :", self.niveau)
         print("Ses Points de vie sont de :", self.pv)
         print("Son élément est :", self.element)
-
-    def Attaque_Rapide(self):
-        if self.element == "Feu":
-            self.pv -= 96
-        if self.element == "Eau":
-            self.pv -= 48
-        if self.element == "Plante":
-            self.pv -= 24
 
 class Salameche(Pokemon):
     def __init__(self, pa,nom="Salameche", niveau=1, defense=0, pv=100, element="Feu"):
@@ -79,15 +60,7 @@ class Salameche(Pokemon):
         print("Ses Points de vie sont de :", self.pv)
         print("Son élément est :", self.element)
 
-    def Attaque_Rapide(self):
-        if self.element == "Feu":
-            self.pv -= 52
-        if self.element == "Eau":
-            self.pv -= 26
-        if self.element == "Plante":
-            self.pv -= 104
-
-p=Pokemon("",10)
+p = Pokemon("",10)
 b = Bulbizarre("", 10)
 c = Carapuce("", 10)
 s = Salameche("", 10)
@@ -108,6 +81,14 @@ class Joueur1(Pokemon):
         print("Erreur")
     print("------------")
 
+    def Attaque_Rapide(self):
+        if self.element == "Feu":
+            self.pv -= 52
+        if self.element == "Eau":
+            self.pv -= 48
+        if self.element == "Plante":
+            self.pv -= 49
+
 class Joueur2(Pokemon):
     def __init__(self, nom, pa, niveau=1, defense=0, pv=100):
         super().__init__(nom, pa, niveau, defense, pv)
@@ -124,5 +105,13 @@ class Joueur2(Pokemon):
         print("Erreur")
     print("------------")
 
-j1 = Joueur1() 
-j2 = Joueur2()
+    def Attaque_Rapide(self):
+        if self.element == "Feu":
+            self.pv -= 52
+        if self.element == "Eau":
+            self.pv -= 48
+        if self.element == "Plante":
+            self.pv -= 49
+
+j1 = Joueur1
+j2 = Joueur2
