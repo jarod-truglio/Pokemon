@@ -12,6 +12,14 @@ class Pokemon:
     def Choose_Pokemon(self):
         self.nom = random.choice(self.nom_pokemon)
         return self.nom
+    
+    def Attaque_Rapide(self):
+        self.pv -= self.pa
+
+    def Show_Information(self):
+        print(self.nom)
+        print(self.pv)
+
 
 class Bulbizarre(Pokemon):
     def __init__(self, pa, niveau=1, defense=0, pv=100, nom="Bulbizarre", element="Plante"):
@@ -84,9 +92,12 @@ b = Bulbizarre("", 10)
 c = Carapuce("", 10)
 s = Salameche("", 10)
 
-def Joueur1():
+class Joueur1(Pokemon):
+    def __init__(self, nom, pa, niveau=1, defense=0, pv=100):
+        super().__init__(nom, pa, niveau, defense, pv)
     p.Choose_Pokemon()
-    print("Vous avez obtenu :", p.nom)
+    print("------------")
+    print(f"Joueur1 à obtenu : {p.nom}")
     if p.nom == "Bulbizarre":
         b.Affiche_Bulbizarre()
     elif p.nom == "Salameche":
@@ -95,10 +106,14 @@ def Joueur1():
         c.Affiche_Carapuce()
     else:
         print("Erreur")
+    print("------------")
 
-def Joueur2():
+class Joueur2(Pokemon):
+    def __init__(self, nom, pa, niveau=1, defense=0, pv=100):
+        super().__init__(nom, pa, niveau, defense, pv)
     p.Choose_Pokemon()
-    print("Votre adversaire à obtenu :", p.nom)
+    print("------------")
+    print(f"Joueur2 à obtenu : {p.nom}")
     if p.nom == "Bulbizarre":
         b.Affiche_Bulbizarre()
     elif p.nom == "Salameche":
@@ -107,7 +122,7 @@ def Joueur2():
         c.Affiche_Carapuce()
     else:
         print("Erreur")
+    print("------------")
 
-Joueur1()
-print("--------------")
-Joueur2()
+j1 = Joueur1() 
+j2 = Joueur2()
