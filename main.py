@@ -1,9 +1,8 @@
 import random 
 
 class Pokemon:
-    def __init__(self, nom, element, pa, niveau=1, defense=0, pv=100):
+    def __init__(self, nom, pa, niveau=1, defense=0, pv=100):
         self.nom = nom
-        self.element = element
         self.pv = pv
         self.niveau = niveau
         self.pa = pa
@@ -60,12 +59,26 @@ class Salameche(Pokemon):
         print("Ses Points de vie sont de :", self.pv)
         print("Son élément est :", self.element)
 
+class Pikachu(Pokemon):
+    def __init__(self, pa,nom="Pikachu", niveau=1, defense=0, pv=100, element="Electrique"):
+        super().__init__(nom, pa, niveau, defense, pv)
+        self.pa = 55
+        self.defense = 40
+        self.element = element
+
+    def Affiche_Pikachu(self):
+        print("Sa Puissance d'attaque est de :", self.pa)
+        print("Sa défense est de :", self.defense)
+        print("Son niveau est de :", self.niveau)
+        print("Ses Points de vie sont de :", self.pv)
+        print("Son élément est :", self.element)
+
 p = Pokemon("",10)
 b = Bulbizarre("", 10)
 c = Carapuce("", 10)
 s = Salameche("", 10)
 
-class Joueur1(Pokemon):
+class Joueur1(Pikachu):
     def __init__(self, nom, pa, niveau=1, defense=0, pv=100):
         super().__init__(nom, pa, niveau, defense, pv)
     p.Choose_Pokemon()
@@ -89,7 +102,7 @@ class Joueur1(Pokemon):
         if self.element == "Plante":
             self.pv -= 49
 
-class Joueur2(Pokemon):
+class Joueur2(Bulbizarre, Carapuce, Salameche):
     def __init__(self, nom, pa, niveau=1, defense=0, pv=100):
         super().__init__(nom, pa, niveau, defense, pv)
     p.Choose_Pokemon()
@@ -115,3 +128,4 @@ class Joueur2(Pokemon):
 
 j1 = Joueur1
 j2 = Joueur2
+
