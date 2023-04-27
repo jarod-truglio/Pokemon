@@ -31,6 +31,13 @@ class Bulbizarre(Pokemon):
         print("Ses Points de vie sont de :", self.pv)
         print("Son élément est :", self.element)
 
+    def Attaque_Spe_Pika(self):
+            self.Attaque_Spe_Pika = False
+            if self.Attaque_Spe_Pika == False :
+                self.pv -= 65
+            else :
+                 print("Attaque spéciale déjà utilisé")
+    
     def Attaque_Rapide_Pika(self):
             self.pv -= 55
 
@@ -48,6 +55,13 @@ class Carapuce(Pokemon):
         print("Ses Points de vie sont de :", self.pv)
         print("Son élément est :", self.element)
 
+    def Attaque_Spe_Pika(self):
+            self.Attaque_Spe_Pika = False
+            if self.Attaque_Spe_Pika == False :
+                self.pv -= 65
+            else :
+                 print("Attaque spéciale déjà utilisé")
+    
     def Attaque_Rapide_Pika(self):
             self.pv -= 55
 
@@ -65,6 +79,13 @@ class Salameche(Pokemon):
         print("Ses Points de vie sont de :", self.pv)
         print("Son élément est :", self.element)
 
+    def Attaque_Spe_Pika(self):
+            self.Attaque_Spe_Pika = False
+            if self.Attaque_Spe_Pika == False :
+                self.pv -= 65
+            else :
+                 print("Attaque spéciale déjà utilisé")
+    
     def Attaque_Rapide_Pika(self):
             self.pv -= 55
 
@@ -105,14 +126,6 @@ class Joueur1(Pikachu):
     print("Tu à obtenu Pikachu")
     pika.Affiche_Pikachu()
     print("------------")
-
-    def Attaque_Rapide(self):
-        if self.element == "Feu":
-            self.pv -= 52
-        if self.element == "Eau":
-            self.pv -= 48
-        if self.element == "Plante":
-            self.pv -= 49
 
 class Joueur2(Bulbizarre, Carapuce, Salameche):
     def __init__(self, nom, pa, niveau=1, defense=0, pv=100):
