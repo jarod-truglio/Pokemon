@@ -31,6 +31,9 @@ class Bulbizarre(Pokemon):
         print("Ses Points de vie sont de :", self.pv)
         print("Son élément est :", self.element)
 
+    def Attaque_Rapide_Pika(self):
+            self.pv -= 55
+
 class Carapuce(Pokemon):
     def __init__(self, pa, niveau=1, defense=0, pv=100, nom="Carapuce",element="Eau"):
         super().__init__(nom, pa, niveau, defense, pv)
@@ -44,6 +47,9 @@ class Carapuce(Pokemon):
         print("Son niveau est de :", self.niveau)
         print("Ses Points de vie sont de :", self.pv)
         print("Son élément est :", self.element)
+
+    def Attaque_Rapide_Pika(self):
+            self.pv -= 55
 
 class Salameche(Pokemon):
     def __init__(self, pa,nom="Salameche", niveau=1, defense=0, pv=100, element="Feu"):
@@ -59,6 +65,9 @@ class Salameche(Pokemon):
         print("Ses Points de vie sont de :", self.pv)
         print("Son élément est :", self.element)
 
+    def Attaque_Rapide_Pika(self):
+            self.pv -= 55
+
 class Pikachu(Pokemon):
     def __init__(self, pa,nom="Pikachu", niveau=1, defense=0, pv=100, element="Electrique"):
         super().__init__(nom, pa, niveau, defense, pv)
@@ -73,25 +82,28 @@ class Pikachu(Pokemon):
         print("Ses Points de vie sont de :", self.pv)
         print("Son élément est :", self.element)
 
+    def Attaque_Rapide_Bulbi(self):
+            self.pv -= 48
+    
+    def Attaque_Rapide_Carapuce(self):
+            self.pv -= 49
+
+    def Attaque_Rapide_Salam(self):
+            self.pv -= 52
+
 p = Pokemon("",10)
 b = Bulbizarre("", 10)
 c = Carapuce("", 10)
 s = Salameche("", 10)
+pika = Pikachu("",10)
 
 class Joueur1(Pikachu):
     def __init__(self, nom, pa, niveau=1, defense=0, pv=100):
         super().__init__(nom, pa, niveau, defense, pv)
     p.Choose_Pokemon()
     print("------------")
-    print(f"Joueur1 à obtenu : {p.nom}")
-    if p.nom == "Bulbizarre":
-        b.Affiche_Bulbizarre()
-    elif p.nom == "Salameche":
-        s.Affiche_Salameche()
-    elif p.nom == "Carapuce":
-        c.Affiche_Carapuce()
-    else:
-        print("Erreur")
+    print("Tu à obtenu Pikachu")
+    pika.Affiche_Pikachu()
     print("------------")
 
     def Attaque_Rapide(self):
@@ -117,14 +129,6 @@ class Joueur2(Bulbizarre, Carapuce, Salameche):
     else:
         print("Erreur")
     print("------------")
-
-    def Attaque_Rapide(self):
-        if self.element == "Feu":
-            self.pv -= 52
-        if self.element == "Eau":
-            self.pv -= 48
-        if self.element == "Plante":
-            self.pv -= 49
 
 j1 = Joueur1
 j2 = Joueur2
