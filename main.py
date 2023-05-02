@@ -22,6 +22,9 @@ class Pokemon:
     def Show_Information(self):
         print(self.nom)
         print(self.pv)
+        print(self.pa)
+        print(self.defense)
+        print(self.niveau)
 
 class Bulbizarre(Pokemon):
     def __init__(self, pa, attaque, niveau=1, defense=0, pv=100, nom="Bulbizarre", element="Plante"):
@@ -120,14 +123,26 @@ if p.attaque == "Attaque Rapide":
     if j2 == "Bulbizarre":
         pika.pv -= 40
     if j2 == "Carapuce":
-        pika.pv
+        pika.pv -= 40
+    if j2 == "Salameche":
+        pika.pv -= 40
 if p.attaque == "Attaque Spéciale":
     if j2 == "Bulbizarre":
         pika.pv -= 55
     if j2 == "Carapuce":
+        pika.pv -= 50
+    if j2 == "Salameche":
+        pika.pv -= 60
 if p.attaque == "Regen":
     if j2 == "Bulbizarre":
         b.pv += 45
     if j2 == "Carapuce":
+        c.pv += 45
+    if j2 == "Salameche":
+        s.pv -= 45
 
+print("------------")
+print("Voici les informations après attaque de pikachu :")
 pika.Affiche_Pikachu()
+print("------------")
+j2.Show_Information
